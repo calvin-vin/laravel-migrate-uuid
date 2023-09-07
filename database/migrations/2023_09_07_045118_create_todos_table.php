@@ -19,7 +19,7 @@ class CreateTodosTable extends Migration
             $table->text('description')->nullable();
             $table->enum('is_completed', [0,1])->default(0);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
